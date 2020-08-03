@@ -4,11 +4,14 @@ import { logout } from '../../store/actions/register'
 import { Button, View } from 'react-native';
 import COLORS from '../../shared/theme/colors';
 
-const ButtonLoginForm = ({ title }) => {
+const ButtonLoginForm = ({ title, navigation }) => {
 
   const dispatch = useDispatch()
 
-  const logoutHandler = () => dispatch(logout())
+  const logoutHandler = () => {
+    dispatch(logout())
+    navigation.navigate('CreateAccaunt')
+  }
 
   return (
     <View>

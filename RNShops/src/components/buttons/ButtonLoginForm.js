@@ -3,7 +3,7 @@ import { Button, View, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { getPassword, getEmail } from '../../store/selectors';
 
-const ButtonLoginForm = ({ onGetPasswordValue, onGetEmailValue, loginState, title }) => {
+const ButtonLoginForm = ({ onGetPasswordValue, onGetEmailValue, loginState, title, navigation }) => {
 
   const {
     emailValue,
@@ -13,24 +13,23 @@ const ButtonLoginForm = ({ onGetPasswordValue, onGetEmailValue, loginState, titl
   } = loginState
 
   const onUserLoginHandler = () => {
-    (onGetPasswordValue === passwordValue && onGetEmailValue === emailValue) ?
-      Alert.alert(
-        'hello'
-      )
-      :Alert.alert(
-        'Email or password are incorrect!!'
+    (onGetPasswordValue === passwordValue && onGetEmailValue === emailValue)
+      ? navigation.navigate('Shops')
+      : Alert.alert(
+        'Email or password are incorrect!'
       )
   }
 
   return (
     <View>
       <Button 
-        disabled={(emailIsValid && passwordIsValid) ?
-          false
-          :true
+        disabled={(emailIsValid && passwordIsValid)
+          ? false
+          : true
         }
         onPress={onUserLoginHandler}
-        title={title}>
+        title={title}
+      >
       </Button>
     </View>
   )

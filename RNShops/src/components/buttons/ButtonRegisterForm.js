@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../store/actions/register'
 import { Button, View } from 'react-native';
 
-const ButtonRegisterForm = ({ state, title }) => {
+const ButtonRegisterForm = ({ state, title, navigation }) => {
 
   const dispatch = useDispatch()
 
@@ -23,6 +23,7 @@ const ButtonRegisterForm = ({ state, title }) => {
       nameValue
     }
     dispatch(register(userData))
+    navigation.navigate('SignIn')
   }
 
   return (

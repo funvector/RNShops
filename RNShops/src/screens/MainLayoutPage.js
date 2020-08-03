@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import RegisterPage from '../screens/RegisterPage';
-import COLORS from '../shared/theme/colors';
 import LogoutPage from './LogoutPage';
 import LoginPage from './LoginPage';
+import ShopListPage from './ShopListPage';
+import ShopPage from './ShopPage';
 
 const MainLayoutPage = () => {
 
@@ -13,7 +15,8 @@ const MainLayoutPage = () => {
     emailValue: '',
     emailIsValid: false,
     nameValue: '',
-    nameIsValid: false
+    nameIsValid: false,
+    isThemeDarck: true
   })
   
   const onPasswordChangeHandler = (value) => {
@@ -42,28 +45,43 @@ const MainLayoutPage = () => {
       return {...prevState, nameValue: value, nameIsValid: false}
     })
   }
+
+  const Stack = createStackNavigator();
+  
   
   return (
-    <View style={styles.container}>
-      <LogoutPage/>
-      <RegisterPage 
-        inputPasswordHandler={onPasswordChangeHandler}
-        inputEmailHandler={onEmailChangeHandler}
-        inputNamelHandler={onNameChangeHandler}
-        state={state}
-      />
-      <LoginPage
-        state={state}
-      />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='SignIn'>
+          {(props) => <LoginPage {...props} state={state} />}
+        </Stack.Screen>
+        <Stack.Screen name='LogOut'>
+          {(props) => <LogoutPage {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name='CreateAccaunt'>
+          {(props) => <RegisterPage 
+            {...props}
+            inputPasswordHandler={onPasswordChangeHandler}
+            inputEmailHandler={onEmailChangeHandler}
+            inputNamelHandler={onNameChangeHandler}
+            state={state} 
+          />}
+        </Stack.Screen>
+        <Stack.Screen name='Shops'>
+          {(props) => <ShopListPage 
+            {...props}
+            state={state} 
+          />}
+        </Stack.Screen>
+        <Stack.Screen name='Shop'>
+          {(props) => <ShopPage 
+            {...props}
+            state={state} 
+          />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.bgColor,
-    flex: 1
-  }
-});
 
 export default MainLayoutPage
