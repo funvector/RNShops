@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
   },
   overview: {
     color: 'gray',
-    fontSize: 15
+    fontSize: 15,
+    padding: 10
   }
 })
 

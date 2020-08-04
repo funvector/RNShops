@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import COLORS from '../shared/theme/colors'
 import { FlatList } from 'react-native-gesture-handler';
 import { DATA } from '../data/data'
@@ -8,7 +8,7 @@ import Shop from '../components/Shop';
 const ShopListPage = ({ navigation, state }) => {
 
   const openShopHandler = (shop) => {
-    navigation.navigate('Shop', {
+    navigation.navigate('ShopPage', {
       shopId: shop.id
     })
   }

@@ -23,7 +23,7 @@ const ButtonRegisterForm = ({ state, title, navigation }) => {
       nameValue
     }
     dispatch(register(userData))
-    navigation.navigate('SignIn')
+    navigation.navigate('LoginPage')
   }
 
   return (

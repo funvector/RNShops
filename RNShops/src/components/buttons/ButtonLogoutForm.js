@@ -10,7 +10,7 @@ const ButtonLoginForm = ({ title, navigation }) => {
 
   const logoutHandler = () => {
     dispatch(logout())
-    navigation.navigate('CreateAccaunt')
+    navigation.navigate('RegisterPage')
   }
 
   return (

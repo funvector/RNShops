@@ -14,7 +14,7 @@ const ButtonLoginForm = ({ onGetPasswordValue, onGetEmailValue, loginState, titl
 
   const onUserLoginHandler = () => {
     (onGetPasswordValue === passwordValue && onGetEmailValue === emailValue)
-      ? navigation.navigate('Shops')
+      ? navigation.navigate('ShopListPage')
       : Alert.alert(
         'Email or password are incorrect!'
       )

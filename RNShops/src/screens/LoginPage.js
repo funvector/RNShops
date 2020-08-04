@@ -52,7 +52,7 @@ const LoginPage = ({ state, navigation }) => {
         />
         <View 
           style={styles.regPageNavBtn}
-          onTouchStart={() => navigation.navigate('CreateAccaunt')}
+          onTouchStart={() => navigation.navigate('RegisterPage')}
         > 
           <Text style={{color: '#fff'}}>Go to Register Page</Text>
           <Image

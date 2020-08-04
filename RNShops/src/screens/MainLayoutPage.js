@@ -48,17 +48,16 @@ const MainLayoutPage = () => {
 
   const Stack = createStackNavigator();
   
-  
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='SignIn'>
+        <Stack.Screen name='LoginPage' options={{title: 'Sign In'}}>
           {(props) => <LoginPage {...props} state={state} />}
         </Stack.Screen>
-        <Stack.Screen name='LogOut'>
+        <Stack.Screen name='LogoutPage' options={{title: 'Log Out'}}>
           {(props) => <LogoutPage {...props} />}
         </Stack.Screen>
-        <Stack.Screen name='CreateAccaunt'>
+        <Stack.Screen name='RegisterPage' options={{title: 'Create new Account'}}>
           {(props) => <RegisterPage 
             {...props}
             inputPasswordHandler={onPasswordChangeHandler}
@@ -67,13 +66,13 @@ const MainLayoutPage = () => {
             state={state} 
           />}
         </Stack.Screen>
-        <Stack.Screen name='Shops'>
+        <Stack.Screen name='ShopListPage' options={{title: 'Shops'}}>
           {(props) => <ShopListPage 
             {...props}
             state={state} 
           />}
         </Stack.Screen>
-        <Stack.Screen name='Shop'>
+        <Stack.Screen name='ShopPage' options={{title: 'Shop'}}>
           {(props) => <ShopPage 
             {...props}
             state={state} 
